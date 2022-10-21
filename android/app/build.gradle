@@ -321,7 +321,6 @@ project.ext.vectoricons = [
         'FontAwesome5_Brands.ttf',
         'FontAwesome5_Regular.ttf',
         'FontAwesome5_Solid.ttf',
-        'MaterialIcons.ttf',
         
         ] // Name of the font files you want to copy
 ]
