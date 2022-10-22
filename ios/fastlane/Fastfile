@@ -19,7 +19,7 @@ platform :ios do
     lane :beta do
       build_app(scheme: "MyApp1", workspace: "MyApp1.xcworkspace", include_bitcode: true)
       pilot
-      commit_version_bump(message: 'Bump build', xcodeproj: './MyApp1.xcodeproj')
+      commit_version_bump(message: 'Bump build')
       push_to_git_remote
     end
 end
