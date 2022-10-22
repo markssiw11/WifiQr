@@ -8,15 +8,16 @@ platform :ios do
       match(app_identifier: 'com.wifiqrcode', type: 'development', readonly: true)
       match(app_identifier: 'com.wifiqrcode', type: 'appstore', readonly: true)
     end
-  desc 'Build the iOS application.'
-    private_lane :build do
-      certificates
-      increment_build_number(xcodeproj: './MyApp1.xcodeproj')
-      gym(scheme: 'MyApp1', project: './MyApp1.xcodeproj')
-    end
+  # desc 'Build the iOS application.'
+  #   private_lane :build do
+  #     certificates
+  #     increment_build_number(xcodeproj: './MyApp1.xcodeproj')
+  #     gym(scheme: 'MyApp1', project: './MyApp1.xcodeproj')
+  #   end
+
   desc 'Ship to Testflight.'
     lane :beta do
-      build
+      build_app(scheme: "MyApp1", workspace: "MyApp1.xcworkspace", include_bitcode: true)
       pilot
       commit_version_bump(message: 'Bump build', xcodeproj: './MyApp1.xcodeproj')
       push_to_git_remote
